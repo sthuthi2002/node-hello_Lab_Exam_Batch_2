@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitorappsec
+  labels:
+    app: monitorappsec
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitorappsec
+  template:
+    metadata:
+      labels:
+        app: monitorappsec
+    spec:
+      containers:
+      - name: monitorappsec
+        image: prashasthnaik/nodejsappsec:latest
+        ports:
+        - containerPort: 3000
